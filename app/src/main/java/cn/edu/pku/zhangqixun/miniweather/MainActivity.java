@@ -46,7 +46,9 @@ public class MainActivity extends Activity implements View.OmClickListener {
                 Log.d("myWeather", "網絡扯了");
                 Toast.makeText(MainActivity.this,"網絡扯了！", Toast.LENGTH_LONG).show();
             }
+            initView();
     }
+
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.title_update_btn){
