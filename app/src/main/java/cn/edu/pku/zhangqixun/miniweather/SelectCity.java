@@ -18,6 +18,8 @@ public class SelectCity extends Activity implements View.OnClickListener{ //ไปฅไ
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_city);
 
+        initView();
+
         mBackBtn = (ImageView) findViewById(R.id.title_back);
         mBackBtn.setOnClickListener(this);
     }
