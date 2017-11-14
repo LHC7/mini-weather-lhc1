@@ -14,7 +14,7 @@
             android:id="@+id/title_city_manager"
             android:layout_width="45.0dip"
             android:layout_height="45.0dip"
-            android:src="@drawable/title_city"/>
+            android:src="@drawable/title_city" />
 
         <ImageView
             android:id="@+id/city_seperator"
@@ -57,7 +57,7 @@
             android:layout_toLeftOf="@+id/title_share"
             android:src="@drawable/base_action_bar_action_city" />
 
-        </RelativeLayout>
+    </RelativeLayout>
 
 
     <LinearLayout
@@ -71,7 +71,7 @@
             android:id="@+id/weather_today"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:padding="10.0dip" >
+            android:padding="10.0dip">
             <!-- 城市名稱 -->
             <TextView
                 android:id="@+id/city"
@@ -139,7 +139,7 @@
                     android:paddingBottom="6.0dp"
                     android:paddingLeft="12.0dp"
                     android:paddingRight="12.0dp"
-                    android:paddingTop="6.0dp" >
+                    android:paddingTop="6.0dp">
                     <!-- PM2.5文字詳情 -->
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -170,7 +170,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5.0dp"
-                        android:src="@drawable/biz_plugin_weather_0_50" />                  </LinearLayout>
+                        android:src="@drawable/biz_plugin_weather_0_50" />
+                </LinearLayout>
 
                 <!-- 汙染等級(重度汙染) -->
                 <TextView
@@ -190,7 +191,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_below="@id/humidity"
                 android:layout_centerInParent="true"
-                android:layout_marginTop="5.0dp" >
+                android:layout_marginTop="5.0dp">
 
                 <!-- 天氣情況圖片示例 -->
                 <ImageView
@@ -260,4 +261,4 @@
 </RelativeLayout>
 
 
-<!-- update圖無法顯示 -->
+    <!-- update圖無法顯示 -->
