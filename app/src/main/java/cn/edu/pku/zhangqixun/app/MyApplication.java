@@ -1,8 +1,14 @@
 package cn.edu.pku.zhangqixun.app;
 
 import android.app.Application;
+import android.os.Environment;
 import android.util.Log;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.edu.pku.zhangqixun.bean.City;

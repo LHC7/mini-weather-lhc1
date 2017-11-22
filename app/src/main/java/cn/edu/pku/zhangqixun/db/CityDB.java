@@ -1,5 +1,14 @@
 package cn.edu.pku.zhangqixun.db;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.edu.pku.zhangqixun.bean.City;
+
 /**
  * Created by test on 2017/11/15.
  */

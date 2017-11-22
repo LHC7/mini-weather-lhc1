@@ -21,7 +21,6 @@ import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import cn.edu.pku.zhangqixun.miniweather.cn.edu.pku.zhangqixun.bean.TodayWeather;
 import cn.edu.pku.zhangqixun.util.NetUtil;
 
 //從上列來源讀入數據和資料作使用
@@ -30,9 +29,7 @@ import cn.edu.pku.zhangqixun.util.NetUtil;
  */
 
 
-public class MainActivity {
-}
-public class MainActivity extends Activity implements View.OmClickListener {
+public class MainActivity extends Activity implements View.OnClickListener {
     private static final int UPDATE_TODAY_WEATHER = 1;
     private ImageView mUpdateBtn;
     private ImageView mCitySelect;
@@ -63,9 +60,6 @@ public class MainActivity extends Activity implements View.OmClickListener {
             Log.d("myWeather","網絡OK");
             Toast.makeText(MainActivity.this,"網絡OK！", Toast.LENGTH_LONG).show();
         }else
-            city_name_Tv = (TextView) findViewById(R.id.title_city_name);
-        cityTv = (TextView) findViewById(R.id.city);
-        timeTv = (TextView) fin
             {
                 Log.d("myWeather", "網絡扯了");
                 Toast.makeText(MainActivity.this,"網絡扯了！", Toast.LENGTH_LONG).show();
@@ -74,7 +68,10 @@ public class MainActivity extends Activity implements View.OmClickListener {
             mCitySelect.setOnClickListener(this);
             initView();
     }
-    void initView(){dViewById(R.id.time);
+    void initView(){
+        city_name_Tv = (TextView) findViewById(R.id.title_city_name);
+        cityTv = (TextView) findViewById(R.id.city);
+        timeTv = (TextView) findViewById(R.id.time);
         humidityTv = (TextView) findViewById(R.id.humidity);
         weekTv = (TextView) findViewById(R.id.week_today);
         pmDataTv = (TextView) findViewById(R.id.pm_data);

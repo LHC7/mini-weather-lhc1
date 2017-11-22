@@ -1,9 +1,11 @@
-package cn.edu.pku.zhangqixun.miniweather.cn.edu.pku.zhangqixun.bean;
+package cn.edu.pku.zhangqixun.bean;
 
+import android.util.Log;
 import android.widget.Toast;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -75,6 +77,7 @@ public class TodayWeather {
     }
 }
 
+//用XML解析文件數據
 private TodayWeather parseXML(String xmldata){
     TodayWeather todayWeather = null;
     int fengxiangCount =0;
@@ -84,18 +87,18 @@ private TodayWeather parseXML(String xmldata){
     int lowCount =0;
     int typeCount =0;
     try{
-        xmlPullParserFactory fac = xmlPullParserFactory.newInstance();
-        xmlPullParser xmlPullParser = fac.newPullParser();
-        xmlPullParse.setInpur(new StringReader(xmldata));
-        int eventType = xmlPullParser.getEventType()'
+        XmlPullParserFactory fac = XmlPullParserFactory.newInstance();
+        XmlPullParser xmlPullParser = fac.newPullParser();
+        xmlPullParser.setInput(new StringReader(xmldata));
+        int eventType = xmlPullParser.getEventType();
         Log.d("myWeather", "parseXML");
         while (eventType != XmlPullParser.END_DOCUMENT){
             switch (eventType){
                 //判斷當前事件是否為文檔之開始文件
-                case XmlPullParser.START_DOCUMENT;
+                case XmlPullParser.START_DOCUMENT:
                 break;
                 //判斷當前事件是否為標籤元素之開始事件
-                case XmlPullParser.START_TAG;
+                case XmlPullParser.START_TAG:
                 if (xmlPullParser.getName().equals("resp")){
                     todayWeather = new TodayWeather();
                 }
@@ -119,7 +122,7 @@ private TodayWeather parseXML(String xmldata){
                         eventType = xmlPullParser.next();
                         todayWeather.setQualty(xmlPullParser.getText());
                     }else if (xmlPullParser.getName().equals("fengxiang") && fengxiangCount == 0) {
-                        eventType = xmlPullParser.next;
+                        eventType = xmlPullParser.next();
                         todayWeather.setFengxiang(xmlPullParser.getText());
                         fengxiangCount++;
                     }else if (xmlPullParser.getName().equals("fengli") && fengliCount == 0){
@@ -131,7 +134,7 @@ private TodayWeather parseXML(String xmldata){
                         dataCount++;
                     }else if (xmlPullParser.getName().equals("high") && highCount == 0){
                         eventType = xmlPullParser.next();
-                        todayWeather.setHigh(xmlPullParser.getText().substring(2).trimm());
+                        todayWeather.setHigh(xmlPullParser.getText().substring(2).trim());
                         highCount++;
                     }else if (xmlPullParser.getName().equals("low") && lowCount == 0){
                         eventType = xmlPullParser.next();
