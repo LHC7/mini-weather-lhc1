@@ -39,4 +39,10 @@ public class City {
     private String getAllFristPY(){
         return allFristPY;
     }
+
+    public String getCity() {
+
+        return null;
+    }
+
 }

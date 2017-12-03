@@ -37,12 +37,13 @@
 
 
     <RelativeLayout
+        android:id="@+id/title_top"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/title_top">
 
         <ListView
-            android:layout_below="@+id/search_city"
+            android:layout_below="@+id/title_list"
             android:id="@id/title_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

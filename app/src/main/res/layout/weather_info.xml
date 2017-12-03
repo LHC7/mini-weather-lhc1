@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <RelativeLayout
         android:id="@+id/title"
         android:layout_width="fill_parent"
@@ -14,7 +15,8 @@
             android:id="@+id/title_city_manager"
             android:layout_width="45.0dip"
             android:layout_height="45.0dip"
-            android:src="@drawable/title_city" />
+            android:src="@drawable/title_city"
+            android:contentDescription="@string/app_name"/>
 
         <ImageView
             android:id="@+id/city_seperator"
@@ -22,7 +24,8 @@
             android:layout_height="40dip"
             android:layout_marginTop="2.0dip"
             android:layout_toRightOf="@+id/title_city_manager"
-            android:background="#A71717" />
+            android:background="#A71717"
+            android:contentDescription="@string/app_name"/>
 
         <TextView
             android:id="@+id/title_city_name"
@@ -41,21 +44,24 @@
             android:layout_height="45.0dip"
             android:layout_alignParentRight="true"
             android:layout_gravity="center"
-            android:scr="@drawable/title_update" />
+            android:scr="@drawable/title_update"
+            android:contentDescription="@string/app_name"/>
 
         <ImageView
             android:id="@+id/title_share"
             android:layout_width="45.0dip"
             android:layout_height="45.0dip"
             android:layout_toLeftOf="@id/title_update_btn"
-            android:src="@drawable/title_share" />
+            android:src="@drawable/title_share"
+            android:contentDescription="@string/app_name"/>
 
         <ImageView
             android:id="@+id/title_location"
             android:layout_width="45.0dip"
             android:layout_height="45.0dip"
             android:layout_toLeftOf="@+id/title_share"
-            android:src="@drawable/base_action_bar_action_city" />
+            android:src="@drawable/base_action_bar_action_city"
+            android:contentDescription="@string/app_name"/>
 
     </RelativeLayout>
 
@@ -170,7 +176,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5.0dp"
-                        android:src="@drawable/biz_plugin_weather_0_50" />
+                        android:src="@drawable/biz_plugin_weather_0_50"
+                        android:contentDescription="@string/app_name"/>
                 </LinearLayout>
 
                 <!-- 汙染等級(重度汙染) -->
@@ -199,7 +206,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:src="@drawable/biz_plugin_weather_qing" />
+                    android:src="@drawable/biz_plugin_weather_qing"
+                    android:contentDescription="@string/app_name"/>
                 <!--  今天星期  -->
                 <TextView
                     android:id="@+id/week_today"

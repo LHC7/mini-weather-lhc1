@@ -92,61 +92,58 @@ private TodayWeather parseXML(String xmldata){
         xmlPullParser.setInput(new StringReader(xmldata));
         int eventType = xmlPullParser.getEventType();
         Log.d("myWeather", "parseXML");
-        while (eventType != XmlPullParser.END_DOCUMENT){
-            switch (eventType){
+        while (eventType != XmlPullParser.END_DOCUMENT) {
+            switch (eventType) {
                 //判斷當前事件是否為文檔之開始文件
                 case XmlPullParser.START_DOCUMENT:
-                break;
+                    break;
                 //判斷當前事件是否為標籤元素之開始事件
                 case XmlPullParser.START_TAG:
-                if (xmlPullParser.getName().equals("resp")){
-                    todayWeather = new TodayWeather();
-                }
-                if (todayWeather != null){
-                    if (xmlPullParser.getName().equals("city")){
-                        eventType = xmlPullParser.next();
-                        todayWeather.setCity(xmlPullParser.getText());
-                    }else if (xmlPullParser.getName().equals("updatetime")){
-                        eventType = xmlPullParser.next();
-                        todayWeather.getUpdatetime(xmlPullParser.getText());
-                    }else if (xmlPullParser.getName().equals("shidu")){
-                        eventType = xmlPullParser.next();
-                        todayWeather.setShidu(xmlPullParser.getText());
-                    }else if (xmlPullParser.getName().equals("wendu")){
-                        eventType = xmlPullParser.next();
-                        todayWeather.setWendu(xmlPullParser.getText());
-                    }else if (xmlPullParser.getName().equals("pm25")){
-                        eventType =xmlPullParser.next();
-                        todayWeather.setPm25(xmlPullParser.getText());
-                    }else if (xmlPullParser.getName().equals("quality")){
-                        eventType = xmlPullParser.next();
-                        todayWeather.setQualty(xmlPullParser.getText());
-                    }else if (xmlPullParser.getName().equals("fengxiang") && fengxiangCount == 0) {
-                        eventType = xmlPullParser.next();
-                        todayWeather.setFengxiang(xmlPullParser.getText());
-                        fengxiangCount++;
-                    }else if (xmlPullParser.getName().equals("fengli") && fengliCount == 0){
-                        eventType = xmlPullParser.next();
-                        fengliCount++;
-                    }else if (xmlPullParser.getName().equals("date") && dataCount == 0){
-                        eventType = xmlPullParser.next();
-                        todayWeather.setDate(xmlPullParser.getText());
-                        dataCount++;
-                    }else if (xmlPullParser.getName().equals("high") && highCount == 0){
-                        eventType = xmlPullParser.next();
-                        todayWeather.setHigh(xmlPullParser.getText().substring(2).trim());
-                        highCount++;
-                    }else if (xmlPullParser.getName().equals("low") && lowCount == 0){
-                        eventType = xmlPullParser.next();
-                        todayWeather.setLow(xmlPullParser.getText().substring(2).trim());
-                        lowCount++;
-                    }else if (xmlPullParser.getName().equals("type") && typeCount == 0) {
-                        eventType = xmlPullParser.next();
-                        todayWeather.setType(xmlPullParser.getText());
-                        typeCount++;
+                    if (xmlPullParser.getName().equals("city")) {
+                            eventType = xmlPullParser.next();
+                            Log.d("myWeather","city:     "+xmlPullParser.getText());
+                    } else if (xmlPullParser.getName().equals("updatetime")) {
+                            eventType = xmlPullParser.next();
+                            Log.d("myWeather", "updatetime:     "+xmlPullParser.getText());
+                        } else if (xmlPullParser.getName().equals("shidu")) {
+                            eventType = xmlPullParser.next();
+                           Log.d("myWeather", "shidu:     "+xmlPullParser.getText());
+                        } else if (xmlPullParser.getName().equals("wendu")) {
+                            eventType = xmlPullParser.next();
+                            Log.d("myWeather", "wendu:     "+xmlPullParser.getText());
+                        } else if (xmlPullParser.getName().equals("pm25")) {
+                            eventType = xmlPullParser.next();
+                            Log.d("myWeather", "pm25:     "+xmlPullParser.getText());
+                        } else if (xmlPullParser.getName().equals("quality")) {
+                            eventType = xmlPullParser.next();
+                            Log.d("myWeather", "quality:     "+xmlPullParser.getText());
+                        } else if (xmlPullParser.getName().equals("fengxiang") && fengxiangCount == 0) {
+                            eventType = xmlPullParser.next();
+                            Log.d("myWeather", "fengxiang:     "+xmlPullParser.getText());
+                            fengxiangCount++;
+                        } else if (xmlPullParser.getName().equals("fengli") && fengliCount == 0) {
+                            eventType = xmlPullParser.next();
+                            Log.d("myWeather", "fengli:     "+xmlPullParser.getText());
+                            fengliCount++;
+                        } else if (xmlPullParser.getName().equals("date") && dataCount == 0) {
+                            eventType = xmlPullParser.next();
+                            Log.d("myWeather", "date:     "+xmlPullParser.getText());
+                            dataCount++;
+                        } else if (xmlPullParser.getName().equals("high") && highCount == 0) {
+                            eventType = xmlPullParser.next();
+                            Log.d("myWeather", "high:     "+xmlPullParser.getText());
+                            highCount++;
+                        } else if (xmlPullParser.getName().equals("low") && lowCount == 0) {
+                            eventType = xmlPullParser.next();
+                            Log.d("myWeather", "low:     "+xmlPullParser.getText());
+                            lowCount++;
+                        } else if (xmlPullParser.getName().equals("type") && typeCount == 0) {
+                            eventType = xmlPullParser.next();
+                            Log.d("myWeather", "type:     "+xmlPullParser.getText());
+                            typeCount++;
+                        }
                     }
-                }
-                break;
+                    break;
 
                 //判斷當前事件是否為標籤元素結束事件
                 case XmlPullParser.END_TAG:
@@ -154,40 +151,10 @@ private TodayWeather parseXML(String xmldata){
             }
             //進入下一個元素並觸發相應事件
             eventType = xmlPullParser.next();
+        }
         } catch (XmlPullParserException e){
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return todayWeather;
-
-    }
 }
-
-void setUpdateTodayWeather(TodayWeather todayWeather){
-    city_name_TV.setText(todayWeather.getCity()+"天氣");
-    cityTV.setText(todayWeather.getCity());
-    timeTV.setText(todayWeather.getUpdatetime()+ "發布");
-    humidityTV.setText("溫度："+todayWeather.getShidu());
-    pmDataTV.setText(todayWeather.getPm25());
-    pmQualityTV.setText(todayWeather.getQuality());
-    weekTV.setText(todayWeather.getDate());
-    temperatureTV.setText(todayWeather.getHigh()+"-"+todayWeather.getLow());
-    climateTV.setText(todayWeather.getType());
-    windTV.setText("風力："+todayWeather.getFengli());
-    Toast.makeText(MainActivity.this, "更新成功！", Toast.LENGTH_SHORT).show();
-}
-
-void updateTodayWeather(TodayWeather todayWeather){
-    city_name_Tv.setText(todayWeather.getCity()+"天气");
-    cityTv.setText(todayWeather.getCity());
-    timeTv.setText(todayWeather.getUpdatetime()+ "发布");
-    humidityTv.setText("湿度："+todayWeather.getShidu());
-    pmDataTv.setText(todayWeather.getPm25());
-    pmQualityTv.setText(todayWeather.getQuality());
-    weekTv.setText(todayWeather.getDate());
-    temperatureTv.setText(todayWeather.getHigh()+"~"+todayWeather.getLow());
-    climateTv.setText(todayWeather.getType());
-    windTv.setText("风力:"+todayWeather.getFengli());
-    Toast.makeText(MainActivity.this,"更新成功！",Toast.LENGTH_SHORT).show();
-    }

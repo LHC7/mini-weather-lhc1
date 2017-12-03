@@ -1,6 +1,7 @@
 package cn.edu.pku.zhangqixun.miniweather;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,6 +22,7 @@ import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import cn.edu.pku.zhangqixun.bean.TodayWeather;
 import cn.edu.pku.zhangqixun.util.NetUtil;
 
 //從上列來源讀入數據和資料作使用
@@ -46,6 +48,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
         }
     };
+
+    //利用TodayWeather对象更新UI中的控件
+    void updateTodayWeather(TodayWeather todayWeather){
+        city_name_Tv.setText(todayWeather.getCity()+"天气");
+        cityTv.setText(todayWeather.getCity());
+        timeTv.setText(todayWeather.getUpdatetime()+ "发布");
+        humidityTv.setText("湿度："+todayWeather.getShidu());
+        pmDataTv.setText(todayWeather.getPm25());
+        pmQualityTv.setText(todayWeather.getQuality());
+        weekTv.setText(todayWeather.getDate());
+        temperatureTv.setText(todayWeather.getHigh()+"~"+todayWeather.getLow());
+        climateTv.setText(todayWeather.getType());
+        windTv.setText("风力:"+todayWeather.getFengli());
+        Toast.makeText(MainActivity.this,"更新成功！",Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     //確認是否連上網路
@@ -165,7 +182,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 private void parseXML(String xmldata) {
     try{
-        xmlPullParserFactory fac = XmlPullParserFactory.newInstance();
+        XmlPullParserFactory fac = XmlPullParserFactory.newInstance();
         XmlPullParser xmlPullParser = fac.newPullParse();
         XmlPullParser.setInput(new StringReader(xmldata));
     }
