@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">MiniWeather</string>
+    <string name="_5">溫度:5℃</string>
+    <string name="PKE">北京</string>
+    <string name="_18_25">今天18:25發布</string>
+    <string name="_57">濕度:57%</string>
+    <string name="pm2_5">PM2.5</string>
+    <string name="_220">220</string>
+    <string name="S_Pol">重度汙染</string>
+    <string name="T_Wen">今天 星期三</string>
+    <string name="_2_7">-2℃~7℃</string>
+    <string name="多雲轉晴">多雲轉晴</string>
+    <string name="微風">微風</string>
+    <string name="北京天氣">北京天氣</string>
+    <string name="当前城市北京">当前城市：北京</string>
+    <string name="todo">TODO</string>
 </resources>

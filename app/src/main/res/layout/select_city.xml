@@ -12,7 +12,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center"
-            android:text="当前城市：北京"
+            android:text="@string/当前城市北京"
             android:textColor="#ffffffff"
             android:textSize="20.0dip" />
         <ImageView
@@ -20,17 +20,20 @@
             android:layout_width="45.0dip"
             android:layout_height="45.0dip"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:src="@drawable/base_action_bar_back_normal"
-            />
+            android:contentDescription="@string/todo" />
         <ImageView
             android:layout_width="1.0dip"
             android:layout_height="40dip"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:layout_toRightOf="@id/title_back"
+            android:layout_toEndOf="@id/title_back"
             android:background="#A71717"
-            android:gravity="center" />
+            android:gravity="center"
+            android:contentDescription="@string/todo" />
 
 
     </RelativeLayout>
@@ -47,8 +50,7 @@
             android:id="@id/title_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#ffffff"
-            >
+            android:background="#ffffff">
         </ListView>
     </RelativeLayout>
 

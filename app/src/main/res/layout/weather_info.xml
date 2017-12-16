@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -24,6 +25,7 @@
             android:layout_height="40dip"
             android:layout_marginTop="2.0dip"
             android:layout_toRightOf="@+id/title_city_manager"
+            android:layout_toEndOf="@+id/title_city_manager"
             android:background="#A71717"
             android:contentDescription="@string/app_name"/>
 
@@ -32,9 +34,12 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_toRightOf="@id/city_seperator"
+            android:layout_toEndOf="@+id/city_seperator"
             android:gravity="center_vertical"
             android:paddingLeft="5dip"
-            android:text="北京天氣"
+            android:paddingStart="5dip"
+            android:paddingEnd="5dip"
+            android:text="@string/北京天氣"
             android:textColor="#ffffffff"
             android:textSize="22.0sp" />
 
@@ -43,8 +48,9 @@
             android:layout_width="45.0dip"
             android:layout_height="45.0dip"
             android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_gravity="center"
-            android:scr="@drawable/title_update"
+            android:src="@drawable/title_update"
             android:contentDescription="@string/app_name"/>
 
         <ImageView
@@ -52,6 +58,7 @@
             android:layout_width="45.0dip"
             android:layout_height="45.0dip"
             android:layout_toLeftOf="@id/title_update_btn"
+            android:layout_toStartOf="@id/title_update_btn"
             android:src="@drawable/title_share"
             android:contentDescription="@string/app_name"/>
 
@@ -60,6 +67,7 @@
             android:layout_width="45.0dip"
             android:layout_height="45.0dip"
             android:layout_toLeftOf="@+id/title_share"
+            android:layout_toStartOf="@+id/title_share"
             android:src="@drawable/base_action_bar_action_city"
             android:contentDescription="@string/app_name"/>
 
@@ -84,10 +92,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="15.0dp"
+                android:layout_marginStart="15.0dp"
                 android:singleLine="true"
-                android:text="北京"
+                android:text="@string/PKE"
                 android:textColor="@android:color/white"
                 android:textSize="40.0sp" />
             <!-- 發布時間 -->
@@ -96,11 +106,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_below="@id/city"
                 android:layout_marginLeft="15.0dp"
+                android:layout_marginStart="15.0dp"
                 android:layout_marginTop="5dp"
                 android:singleLine="true"
-                android:text="今天18:25發布"
+                android:text="@string/_18_25"
                 android:textColor="@android:color/white"
                 android:textSize="15.0sp" />
             <!-- 濕度信息-->
@@ -109,10 +121,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_below="@id/time"
                 android:layout_marginLeft="15.0dp"
+                android:layout_marginStart="15.0dp"
                 android:singleLine="true"
-                android:text="濕度:57%"
+                android:text="@string/_57"
                 android:textColor="@android:color/white"
                 android:textSize="15.0sp" />
             <!-- 即時溫度信息-->
@@ -121,11 +135,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_below="@id/time"
                 android:layout_marginLeft="15.0dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
                 android:singleLine="true"
-                android:text="溫度:5℃"
+                android:text="@string/_5"
                 android:textColor="@android:color/white"
                 android:textSize="15.0sp" />
             <!-- PM2.5整理信息塊 -->
@@ -134,8 +150,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="RelativeOverlap">
 
                 <!-- PM2.5詳情 -->
                 <LinearLayout
@@ -157,7 +175,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:singleLine="true"
-                            android:text="PM2.5"
+                            android:text="@string/pm2_5"
                             android:textColor="@android:color/white"
                             android:textSize="12.0sp" />
                         <!-- PM2.5數值 -->
@@ -166,7 +184,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:singleLine="true"
-                            android:text="220"
+                            android:text="@string/_220"
                             android:textColor="@android:color/white"
                             android:textSize="30.0sp" />
                     </LinearLayout>
@@ -176,6 +194,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5.0dp"
+                        android:layout_marginStart="5.0dp"
                         android:src="@drawable/biz_plugin_weather_0_50"
                         android:contentDescription="@string/app_name"/>
                 </LinearLayout>
@@ -187,7 +206,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:singleLine="true"
-                    android:text="重度汙染"
+                    android:text="@string/S_Pol"
                     android:textColor="@android:color/white"
                     android:textSize="20.0sp" />
             </LinearLayout>
@@ -196,6 +215,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_below="@id/humidity"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="5.0dp">
@@ -206,6 +226,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:src="@drawable/biz_plugin_weather_qing"
                     android:contentDescription="@string/app_name"/>
                 <!--  今天星期  -->
@@ -215,9 +236,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
                     android:layout_toRightOf="@+id/weather_img"
+                    android:layout_toEndOf="@+id/weather_img"
                     android:singleLine="true"
-                    android:text="今天 星期三"
+                    android:text="@string/T_Wen"
                     android:textColor="@android:color/white"
                     android:textSize="20sp" />
                 <!-- 溫度範圍 -->
@@ -227,9 +250,11 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/week_today"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
                     android:layout_toRightOf="@id/weather_img"
+                    android:layout_toEndOf="@id/weather_img"
                     android:singleLine="true"
-                    android:text="-2℃~7℃"
+                    android:text="@string/_2_7"
                     android:textColor="@android:color/white"
                     android:textSize="30.0sp" />
                 <!-- 天氣狀況 -->
@@ -239,9 +264,11 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/temperature"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
                     android:layout_toRightOf="@id/weather_img"
+                    android:layout_toEndOf="@id/weather_img"
                     android:singleLine="true"
-                    android:text="多雲轉晴"
+                    android:text="@string/多雲轉晴"
                     android:textColor="@android:color/white"
                     android:textSize="20.0sp" />
                 <!-- 風力信息 -->
@@ -251,9 +278,11 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/climate"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
                     android:layout_toRightOf="@id/weather_img"
+                    android:layout_toEndOf="@id/weather_img"
                     android:singleLine="true"
-                    android:text="微風"
+                    android:text="@string/微風"
                     android:textColor="@android:color/white"
                     android:textSize="20.0sp" />
             </RelativeLayout>

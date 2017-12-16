@@ -27,7 +27,7 @@ public class City {
     private String getCitycity(){
         return city;
     }
-    private String getNumber(){
+    public String getNumber(){
         return number;
     }
     private String getFirstPY(){

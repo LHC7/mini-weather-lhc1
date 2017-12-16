@@ -1,14 +1,16 @@
 package cn.edu.pku.zhangqixun.miniweather;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.edu.pku.zhangqixun.app.MyApplication;
@@ -22,13 +24,14 @@ public class SelectCity extends Activity implements View.OnClickListener{ //以�
     private ListView mList;
     private Myadapter myadapter;
     private ImageView mBackBtn;
+    private ClearEditText mClearEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_city);
 
-        initViews();
+        initViews(mClearEditText);
 
         mBackBtn = (ImageView) findViewById(R.id.title_back);
         mBackBtn.setOnClickListener(this);
@@ -36,7 +39,7 @@ public class SelectCity extends Activity implements View.OnClickListener{ //以�
     @Override
     public void onClick(View v){
         switch (v.getId()){
-            case R.id.title_back;
+            case R.id.title_back:
                 //再返回主頁面時，在finish之前，传递数据;
                 Intent i = new Intent();
                 i.putExtra("cityCode", "101160101");
@@ -49,7 +52,8 @@ public class SelectCity extends Activity implements View.OnClickListener{ //以�
     }
 }
 
-private void initViews(){
+@SuppressLint("Assert")
+private void initViews(ClearEditText mClearEditText){
     //為mBackBtn設置監聽器
     mBackBtn = (ImageView) findViewById(R. id. title_backoff);
     mBackBtn.setOnClickListener(this);
@@ -58,20 +62,40 @@ private void initViews(){
 
     mList = (ListView) findViewById(R. id. title_list);
     MyApplication myApplication = (MyApplication) getApplication();
-    cityList = myApplication.getCityList();
-    for (City city : cityList) {
-        filterDataList.add(city);
-    }
+    List<City> cityList = myApplication.getCityList();
+    final ArrayList<City> filterDataList = null;
+    assert false;
+    filterDataList.addAll(cityList);
     myadapter = new Myadapter(SelectCity.this, cityList);
-    mList.setAdapter(myadapter);
+    mList.setAdapter((ListAdapter) myadapter);
     mList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
         @Override
-        public void onItemClick(AdapterView<?> adapterView, View view, int position, long 1) {
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        }
+
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int position, long, 1) {
             City city = filterDataList.get(position);
             Intent i = new Intent();
-            i putExtra("cityCode",city.getNumber());
+            i putExtra;
+            ("cityCode",city.getNumber());
             setResult(RESULT_OK, i);
             finish();
         }
+    }
+    );
+}
+
+    public void setmClearEditText(ClearEditText mClearEditText) {
+        this.mClearEditText = mClearEditText;
+    }
+
+class ClearEditText {
+    }
+
+class Myadapter {
+    Myadapter(SelectCity selectCity, List<City> cityList) {
+
     }
 };

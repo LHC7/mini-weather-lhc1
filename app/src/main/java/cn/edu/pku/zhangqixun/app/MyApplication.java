@@ -25,7 +25,11 @@ public class MyApplication extends Application{
     //在Application类中，打开数据库-步驟一;
     private CityDB mCityDB;
     //初始化城市信息列表，步驟一;
-    private List<City> mCityList;
+    private List<City> mCityList = new ArrayList<City>();
+
+    public MyApplication() {
+    }
+
     @Override
     public void onCreate(){
         super.onCreate();
@@ -38,7 +42,7 @@ public class MyApplication extends Application{
     }
     //初始化城市信息列表，步驟三;
     private void initCityList(){
-        mCityList = new ArrayList<City>();
+        mCityList = new ArrayList<>();
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -48,7 +52,7 @@ public class MyApplication extends Application{
         }).start();
     }
     //初始化城市信息列表，步驟四;
-    private boolean prepareCityList() {
+    private void prepareCityList() {
         mCityList = mCityDB.getAllCity();
         int i=0;
         for (City city : mCityList) {
@@ -58,19 +62,19 @@ public class MyApplication extends Application{
             Log.d(TAG,cityCode+":"+cityName);
         }
         Log.d(TAG,"i="+i);
-        return true;
     }
     //初始化城市信息列表，步驟五;
     public List<City> getCityList() {
         return mCityList;
     }
 
+    @org.jetbrains.annotations.Contract(pure = true)
     public static MyApplication getInstance(){
         return mApplication;
     }
-}
 
-//创建打开数据库的方法;
+
+    //创建打开数据库的方法;
     private CityDB openCityDB() {
         String path = "/data"
                 + Environment.getDataDirectory().getAbsolutePath()
@@ -88,7 +92,7 @@ public class MyApplication extends Application{
                     + File.separator;
             File dirFirstFolder = new File(pathfolder);
             if(!dirFirstFolder.exists()){
-                dirFirstFolder.mkdirs();
+                boolean mkdirs = dirFirstFolder.mkdirs();
                 Log.i("MyApp","mkdirs");
             }
             Log.i("MyApp","db is not exists");
@@ -110,3 +114,4 @@ public class MyApplication extends Application{
         }
         return new CityDB(this, path);
     }
+}

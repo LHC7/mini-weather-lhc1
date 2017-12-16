@@ -1,8 +1,11 @@
 package cn.edu.pku.zhangqixun.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+
+import cn.edu.pku.zhangqixun.miniweather.MainActivity;
 
 /**
  * Created by test on 2017/10/24.
@@ -28,5 +31,13 @@ public class NetUtil {
             return  NETWORN_WIFI;
         }
         return NETWORN_NONE;
+    }
+
+    public static int getNetworkState(MainActivity mainActivity) {
+    return 0;
+    }
+
+    public static int getNetwokState(MainActivity mainActivity) {
+    return 0;
     }
 }
